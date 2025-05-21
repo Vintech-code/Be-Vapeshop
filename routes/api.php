@@ -21,6 +21,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //Products
 Route::apiResource('products', ProductController::class);
+Route::put('/products/{product}/restock', [ProductController::class, 'restock']);
 
 
 //History
