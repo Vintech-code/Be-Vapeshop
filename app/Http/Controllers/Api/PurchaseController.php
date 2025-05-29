@@ -18,16 +18,19 @@ public function index()
 
     // Transform each purchase for frontend use
     $data = $purchases->getCollection()->transform(function ($purchase) {
-        return [
-            'id' => $purchase->id,
-            'created_at' => $purchase->created_at,
-            'cashier_id' => $purchase->cashier_id,
-            'cashier_name' => $purchase->cashier?->name ?? 'N/A',
-            'payment_method' => $purchase->payment_method,
-            'total_amount' => $purchase->total_amount,
-            'items' => $purchase->items, // already cast as array
-        ];
-    });
+    return [
+        'id' => $purchase->id,
+        'created_at' => $purchase->created_at,
+        'cashier_id' => $purchase->cashier_id,
+        'cashier_name' => $purchase->cashier?->name ?? 'N/A',
+        'payment_method' => $purchase->payment_method,
+        'total_amount' => $purchase->total_amount,
+        'cash_received' => $purchase->cash_received,
+        'change' => $purchase->change,               
+        'items' => $purchase->items,
+    ];
+});
+
 
     return response()->json([
         'data' => $data,
