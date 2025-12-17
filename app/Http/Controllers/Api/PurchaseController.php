@@ -22,7 +22,7 @@ public function index()
         'id' => $purchase->id,
         'created_at' => $purchase->created_at,
         'cashier_id' => $purchase->cashier_id,
-        'cashier_name' => $purchase->cashier?->name ?? 'N/A',
+        'cashier_name' => $purchase->cashier?->username ?? 'N/A',
         'payment_method' => $purchase->payment_method,
         'total_amount' => $purchase->total_amount,
         'cash_received' => $purchase->cash_received,
